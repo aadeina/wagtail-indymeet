@@ -46,6 +46,7 @@ class SessionViewTests(TestCase):
         self.assertTemplateUsed("home/session/session_list.html")
         self.assertContains(response, self.session_application_open.application_url)
         self.assertContains(response, self.survey_url)
+        self.assertNotContains(response, reverse("event_list"))
         self.assertNotContains(
             response, self.session_application_closed.application_url
         )
